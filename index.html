@@ -4,10 +4,144 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Hangman</title>
   </head>
   <body>
-    <div id="app"> <h1>Hello world</h1> </div>
+    <div class="bg-[#000] text-[#fff]">
+      <!-- CONTAINER -->
+
+
+      <div
+          class="max-w-[1200px]  mx-auto h-screen flex flex-col min-[610px]:flex-row-reverse min-[610px]:justify-around min-[610px]:items-center">
+
+          <!-- CONTAINER SVG -->
+          <div class="flex flex-col justify-center items-center border ">
+              <!-- SVG -->
+              <svg class="border mb-[10px] min-[610px]:scale-150" width="150" height="380" viewBox="0 0 125 600" version="1.1"
+                  id="svg1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:svg="http://www.w3.org/2000/svg">
+                  <defs id="defs1" />
+                  <g id="draw" transform="translate(-859.83051,27.674311)">
+                      <!-- Corda id="corda" -->
+                      <path
+                          style="stroke:#ffffff;stroke-width:7.07288;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.2"
+                          d="M 919.38116,-63.224464 V 233.59131" id="corda" />
+
+                      <!-- 1. Gamba sinistra id="gamba-sinistra"  -->
+                      <path class="hidden"
+                          style="fill:#000000;stroke:#ffffff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                          d="M 919.1654,449.45727 901.04429,560.77265" id="gamba-sinistra" />
+
+                      <!-- 2. Gamba destra id="gamba-destra"  -->
+                      <path class="hidden"
+                          style="fill:#000000;stroke:#ffffff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                          d="m 921.73649,450.32524 18.12112,111.31539" id="gamba-destra" />
+
+                      <!-- 3. Corpo id="corpo" -->
+                      <path class="hidden"
+                          style="stroke:#ffffff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                          d="M 920.50555,342.45205 V 447.16427" id="corpo" />
+
+                      <!-- 4. Braccio destro id="braccio-destro"  -->
+                      <path class="hidden"
+                          style="fill:#000000;stroke:#ffffff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                          d="M 948.94489,436.46317 921.76324,339.3858" id="braccio-destro" />
+
+                      <!-- 5. Braccio sinistro id="braccio-sinistro"  -->
+                      <path class="hidden"
+                          style="fill:#000000;stroke:#ffffff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                          d="M 891.30064,437.19672 918.4823,340.11934" id="braccio-sinistro" />
+
+                      <!-- 6. Testa id="testa" -->
+
+                      <circle class="hidden" style="fill:none;stroke:#ffffff;stroke-width:4" id="testa" cx="919.83051"
+                          cy="288.93558" r="48" />
+
+
+                      <!-- 7. occhi id="x" -->
+                      <g class="hidden" id="x" transform="matrix(1.038643,0,0,1.001233,-35.504379,34.148125)">
+                          <text x="940" y="180" font-size="14" fill="#b30436">ちくしょう</text>
+                          <path
+                              style="stroke:#bb86fc;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                              d="m 895.11624,257.08701 15.8012,19.31471" id="occhio-x" />
+                          <path
+                              style="fill:#000000;stroke:#bb86fc;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                              d="m 911.93896,256.87975 -15.8012,19.31471" id="oxxhio-x-1" />
+                          <path id="occhio-x-2"
+                              style="fill:#000000;stroke:#bb86fc;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                              d="m 927.38086,257.14844 15.80078,19.31445 z" />
+                          <path
+                              style="fill:#000000;stroke:#bb86fc;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                              d="m 944.20408,256.94068 -15.8012,19.31471" id="occhio-x-3" />
+                      </g>
+                  </g>
+              </svg>
+
+
+              <!--  TRATTINI PAROLA -->
+              <div id="parola-container" class="border border-red-500 mb-[50px] flex justify-center min-[610px]:text-[50px] min-[610px]:mt-[100px] mx-[6px] uppercase font-bold opacity-75 text-[30px]"></div>
+          </div>
+
+
+
+          <!-- CONTAINER DELLA CARD -->
+          <div class="flex flex-col items-center justify-center">
+              <!-- CARD -->
+              <div class="bg-[#121212] w-[350px] py-[40px] rounded-md flex flex-col items-center min-[780px]:w-[500px]">
+
+                  <!-- TEXT -->
+                  <div class="w-[260px] min-[780px]:w-[420px] ">
+                      <h1 class="text-[#bb86fc] text-[32px] font-bold uppercase leading-[36px] ">The hangman</h1>
+                      <h3 class="mb-[8px] min-[610px]:mb-[18px] text-[18px]">Gioco che regala emozioni</h3>
+                      <p class="text-[#777] mb-[30px] text-[14px] min-[780px]:mb-[8px]">Inserisci le lettere nello spazio
+                          dedicato e prova
+                          a
+                          non far
+                          morire il
+                          nostro amico.
+
+                      <p class=" text-[#777] mb-[30px] text-[14px] hidden min-[610px]:block">
+                          <span class="font-bold">Enigma dell'impiccato:</span> A un prigioniero viene detto: "Se dici
+                          una
+                          bugia, ti
+                          impeccheremo, se dici la
+                          verità ti spareremo". Cosa può dire per salavarsi?
+                      </p>
+                      </p>
+                  </div>
+
+                  <!-- INPUT -->
+                  <input
+                      class=" focus:outline-none w-[260px] mb-[20px] px-[20px] py-[15px] rounded-md bg-[#121212] border-2 border-[#fff] min-[780px]:w-[420px]"
+                      id="input" type="text" value="" placeholder="es. banana">
+
+                  <!-- NUMERO DI VITE CUORI -->
+                  <div class="w-[260px] min-[780px]:w-[420px]">
+                      <div id="vite-container" class="flex items-start justify-start">
+                          <p>Vite: </p>
+                          <i class="fa fa-heart text-[#bb86fc] py-[5px] mx-[5px]  text-[20px]"></i>
+                          <i class="fa fa-heart text-[#bb86fc] py-[5px] mx-[5px] text-[20px]"></i>
+                          <i class="fa fa-heart text-[#bb86fc] py-[5px] mx-[5px] text-[20px]"></i>
+                          <i class="fa fa-heart text-[#bb86fc] py-[5px] mx-[5px] text-[20px]"></i>
+                          <i class="fa fa-heart text-[#bb86fc] py-[5px] mx-[5px] text-[20px]"></i>
+                          <i class="fa fa-heart text-[#bb86fc] py-[5px] mx-[5px] text-[20px]"></i>
+                          <i class="fa fa-heart text-[#bb86fc] py-[5px] mx-[5px] text-[20px]"></i>
+                      </div>
+                  </div>
+
+                  <!-- CONTAINER RISULTATO -->
+                  <div class="w-[260px] min-[780px]:w-[420px] flex justify-between items-center">
+                      <!-- HAI VINTO / HAI PERSO -->
+                      <div id="risultato-container"></div>
+
+                      <!-- BTN X REFRESH  -->
+                      <div id="btn"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>
