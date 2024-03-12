@@ -3,8 +3,6 @@ let data;
 
 //Chiamata API
 async function getWord() {
-  //INSERIRE PUNTATORE PER FAR COMPARIRE PAROLA
-
   try {
     //response
     const response = await fetch(
@@ -19,6 +17,7 @@ async function getWord() {
     data = await response.json();
     console.log(data);
 
+    //Funzione per impostare il gioco dopo la chiamata API
     setupGame();
   } catch (error) {
     console.log('errore:', error.message);
