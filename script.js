@@ -1,10 +1,16 @@
+// let i = Math.floor(Math.random()* 21)
+// console.log(i)
+// fetch('./parole.json')
+//     .then((response) => response.json())
+//     .then((json) => console.log(json.arte[i]));
 //Variabile per immagazzinare data
 let data;
 
 //Chiamata API
 async function getWord() {
   //INSERIRE PUNTATORE PER FAR COMPARIRE PAROLA
-
+  
+  
   try {
     //response
     const response = await fetch(
@@ -25,7 +31,6 @@ async function getWord() {
   }
 }
 getWord();
-
 function setupGame() {
   //Variabili
   let contaErrori = 0;
