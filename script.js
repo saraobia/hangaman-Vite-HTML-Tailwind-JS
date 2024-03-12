@@ -20,8 +20,7 @@ let paroleMaggiorenni = ['zibellino'];
 let contaErrori = 0;
 let lettereIndovinate = [];
 let vite = 7;
-let eta = 19;
-// parseInt(prompt('inserisci qui la tua età'));
+let eta = parseInt(prompt('inserisci qui la tua età'));
 
 //condizione maggiorenne con if figo
 let messaggio =
