@@ -162,22 +162,47 @@ function hangman() {
 
 //Funzione x far comparire impiccato
 function impiccatoSvg() {
-  // Supponiamo che "contaErrori" rappresenti il numero di errori dell'utente
-  if (contaErrori === 1) {
-    document.getElementById('gamba-sinistra').style.display = 'block';
-  } else if (contaErrori === 2) {
-    document.getElementById('gamba-destra').style.display = 'block';
-  } else if (contaErrori === 3) {
-    document.getElementById('corpo').style.display = 'block';
-  } else if (contaErrori === 4) {
-    document.getElementById('braccio-destro').style.display = 'block';
-  } else if (contaErrori === 5) {
-    document.getElementById('braccio-sinistro').style.display = 'block';
-  } else if (contaErrori === 6) {
-    document.getElementById('testa').style.display = 'block';
-  } else if (contaErrori === 7) {
-    document.getElementById('x').style.display = 'block';
+  
+  switch (contaErrori) {
+    case 1: 
+      document.getElementById('gamba-sinistra').style.display = 'block';
+      break;
+    case 2:
+      document.getElementById('gamba-destra').style.display = 'block';
+      break;
+    case 3:
+      document.getElementById('corpo').style.display = 'block';
+      break;
+    case 4:
+      document.getElementById('braccio-destro').style.display = 'block';
+      break;
+    case 5:
+      document.getElementById('braccio-sinistro').style.display = 'block';
+      break;
+    case 6:
+      document.getElementById('testa').style.display = 'block';
+      break;
+    case 7:
+      document.getElementById('x').style.display = 'block';
+      break;
+
   }
+  // Supponiamo che "contaErrori" rappresenti il numero di errori dell'utente
+  // if (contaErrori === 1) {
+  //   document.getElementById('gamba-sinistra').style.display = 'block';
+  // } else if (contaErrori === 2) {
+  //   document.getElementById('gamba-destra').style.display = 'block';
+  // } else if (contaErrori === 3) {
+  //   document.getElementById('corpo').style.display = 'block';
+  // } else if (contaErrori === 4) {
+  //   document.getElementById('braccio-destro').style.display = 'block';
+  // } else if (contaErrori === 5) {
+  //   document.getElementById('braccio-sinistro').style.display = 'block';
+  // } else if (contaErrori === 6) {
+  //   document.getElementById('testa').style.display = 'block';
+  // } else if (contaErrori === 7) {
+  //   document.getElementById('x').style.display = 'block';
+  // }
 }
 
 //Funzione rimuovi cuori
