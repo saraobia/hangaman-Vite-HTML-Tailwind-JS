@@ -1,43 +1,69 @@
-// let i = Math.floor(Math.random()* 21)
-// console.log(i)
-// fetch('./parole.json')
-//     .then((response) => response.json())
-//     .then((json) => console.log(json.arte[i]));
-//Variabile per immagazzinare data
+import pippo from './parole.json'
+console.log(pippo);
+
 let data;
 
+
+// let i = Math.floor(Math.random() * 21)
+// fetch('./parole.json')
+// .then((response) => response.json())
+// .then((json) => console.log(json.sport[i])); 
+
+
+
+
+
 //Chiamata API
-async function getWord() {
-  //INSERIRE PUNTATORE PER FAR COMPARIRE PAROLA
+ async function getWord() {
+   //INSERIRE PUNTATORE PER FAR COMPARIRE PAROLA
   
   
-  try {
-    //response
-    const response = await fetch(
-      'https://random-word-api.herokuapp.com/word?number=50&lang=it'
-    );
+   try {
+     //response
+     const response = await fetch(
+       'https://random-word-api.herokuapp.com/word?number=50&lang=it'
+     );
 
-    if (!response.ok) {
-      throw new Error('Parola non trovata');
-    }
+     if (!response.ok) {
+       throw new Error('Parola non trovata');
+     }
 
-    // trasformo in json
-    data = await response.json();
-    console.log(data);
+     // trasformo in json
+     data = await response.json();
+     console.log(data);
 
-    setupGame();
-  } catch (error) {
-    console.log('errore:', error.message);
-  }
-}
-getWord();
+     setupGame();
+   } catch (error) {
+     console.log('errore:', error.message);
+   }
+ }
+//getWord();
+
 function setupGame() {
+  let risultato;
+  
   //Variabili
   let contaErrori = 0;
   let lettereIndovinate = [];
   let vite = 7;
+  let parolaCasuale;
 
-  let parolaCasuale = data[Math.floor(Math.random() * data.length)];
+  const api = document.getElementById('api');
+  api.addEventListener('click', function() {
+    getWord();
+    parolaCasuale = data[Math.floor(Math.random() * data.length)];
+    console.log(parolaCasuale)
+  })
+
+  const sports = document.getElementById('sport');
+  sports.addEventListener('click', function(){
+  risultato = 1
+  parolaCasuale = pippo.sport[Math.floor(Math.random() * pippo.sport.length)]
+  console.log(parolaCasuale);
+  console.log(risultato);
+})
+
+  
   let arrayParolaCasuale = parolaCasuale.split('');
 
   // Parola verificata in console
